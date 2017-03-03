@@ -1,5 +1,7 @@
 # Understand ruby GC
 
+Trying to understand GC effect using [NewRelic MemorySampler](https://github.com/newrelic/rpm/blob/492665dd73662ca3901735971127b1307e254637/lib/new_relic/agent/samplers/memory_sampler.rb#L113).
+
 ### Code 
 ```ruby
 require 'newrelic_rpm'
