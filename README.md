@@ -56,9 +56,11 @@ Objects Freed after GC #{GC.stat(:total_freed_objects) - initial_total_freed_obj
 ```sh
 $ ruby delta_gc.rb
 ----------- String -----------
-Memory before GC: 78.5859375, Delta: 58.8828125
-Memory after GC: 79.93359375, Delta: 60.22265625
+Memory before insert: 19.5546875 and initial_total_freed_objects: 320677
+Memory before gc: 78.4765625, Delta: 58.9375, Objects freed before gc? 96
+Memory after GC: 79.83984375, Delta: 60.28515625, Objects Freed after GC 219
 ---------- Constant ----------
-Memory before GC: 135.44921875, Delta: 55.5390625
-Memory after GC: 135.5546875, Delta: 55.62109375
+Memory before insert: 79.84375 and initial_total_freed_objects: 320898
+Memory before gc: 135.21484375, Delta: 55.375, Objeats freed before gc? 158
+Memory after GC: 135.2890625, Delta: 55.4453125, Objects Freed after GC 266
 ```
