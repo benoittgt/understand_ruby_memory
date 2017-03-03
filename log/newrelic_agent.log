@@ -1,0 +1,51 @@
+# Logfile created on 2017-03-03 09:34:39 +0100 by logger.rb/56815
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : Starting the New Relic agent in "development" environment.
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] WARN : No configuration file found. Working directory = /Users/bti/code/understand_ruby_memory_use
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] WARN : Looked in these locations (based on defaults): /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/.newrelic/newrelic.yml, /Users/bti/newrelic.yml
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : Environment: development
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : No known dispatcher detected.
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : Application: development
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : Installing Net instrumentation
+[2017-03-03 09:34:39 +0100 OCTO-BTI.local (14648)] INFO : Finished instrumentation
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : Starting the New Relic agent in "development" environment.
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] WARN : No configuration file found. Working directory = /Users/bti/code/understand_ruby_memory_use
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] WARN : Looked in these locations (based on defaults): /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/.newrelic/newrelic.yml, /Users/bti/newrelic.yml
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : Environment: development
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : No known dispatcher detected.
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : Application: development
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : Installing Net instrumentation
+[2017-03-03 09:34:55 +0100 OCTO-BTI.local (14707)] INFO : Finished instrumentation
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : Starting the New Relic agent in "development" environment.
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] WARN : No configuration file found. Working directory = /Users/bti/code/understand_ruby_memory_use
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] WARN : Looked in these locations (based on defaults): /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/.newrelic/newrelic.yml, /Users/bti/newrelic.yml
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : Environment: development
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : No known dispatcher detected.
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : Application: development
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : Installing Net instrumentation
+[2017-03-03 09:38:23 +0100 OCTO-BTI.local (14807)] INFO : Finished instrumentation
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : Starting the New Relic agent in "development" environment.
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] WARN : No configuration file found. Working directory = /Users/bti/code/understand_ruby_memory_use
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] WARN : Looked in these locations (based on defaults): /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/.newrelic/newrelic.yml, /Users/bti/newrelic.yml
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : Environment: development
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : No known dispatcher detected.
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : Application: development
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : Installing Net instrumentation
+[2017-03-03 09:38:33 +0100 OCTO-BTI.local (14880)] INFO : Finished instrumentation
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : Starting the New Relic agent in "development" environment.
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] WARN : No configuration file found. Working directory = /Users/bti/code/understand_ruby_memory_use
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] WARN : Looked in these locations (based on defaults): /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/config/newrelic.yml, /Users/bti/code/understand_ruby_memory_use/newrelic.yml, /Users/bti/.newrelic/newrelic.yml, /Users/bti/newrelic.yml
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : Environment: development
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : No known dispatcher detected.
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : Application: development
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : Installing Net instrumentation
+[2017-03-03 09:38:54 +0100 OCTO-BTI.local (14954)] INFO : Finished instrumentation

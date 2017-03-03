@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    newrelic_rpm (3.18.1.330)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  newrelic_rpm
+
+RUBY VERSION
+   ruby 2.4.0p0
+
+BUNDLED WITH
+   1.14.0
