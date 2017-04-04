@@ -8,68 +8,68 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 
 * Retained Vs Allocated: Does an object that is allocated can turn to be retained because he is still present after few GC ?
 
-* What are the first line of heap dump that are not address ?
-(Add exemple)
-Partially answered from https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/
-
 * Why when using a frozen string we don't allocate memory ?
 I use a method because it represents "patterns" we discuss with my team, I try to measure the number of allocations betweens calling directly string, calling a string set into a constant outside the function and calling a string frozen in a constant outside the function.
 
-```ruby
-require 'memory_profiler'
+  ```ruby
+  require 'memory_profiler'
 
-report_1 = MemoryProfiler.report do
-  def get_me_directly
-    "hey"
+  report_1 = MemoryProfiler.report do
+    def get_me_directly
+      "hey"
+    end
+    get_me_directly
   end
-  get_me_directly
-end
 
-report_2 = MemoryProfiler.report do
-  ST = "yep"
-  def get_me_with_constant
-    ST
+  report_2 = MemoryProfiler.report do
+    ST = "yep"
+    def get_me_with_constant
+      ST
+    end
+    get_me_with_constant
   end
-  get_me_with_constant
-end
 
-report_3 = MemoryProfiler.report do
-  ST_FREEZE = "yop".freeze
-  def get_me_with_constant_freeze
-    ST_FREEZE
+  report_3 = MemoryProfiler.report do
+    ST_FREEZE = "yop".freeze
+    def get_me_with_constant_freeze
+      ST_FREEZE
+    end
+    get_me_with_constant_freeze
   end
-  get_me_with_constant_freeze
-end
 
-report_1.pretty_print
-# Allocated String Report
-# -----------------------------------
-#          1  "hey"
-#          1  measure_allocation.rb:5
-#
-#
-# Retained String Report
-# -----------------------------------
+  report_1.pretty_print
+  # Allocated String Report
+  # -----------------------------------
+  #          1  "hey"
+  #          1  measure_allocation.rb:5
+  #
+  #
+  # Retained String Report
+  # -----------------------------------
 
-report_2.pretty_print
-# Allocated String Report
-# -----------------------------------
-#          1  "yep"
-#          1  measure_allocation.rb:11
-#
-#
-# Retained String Report
-# -----------------------------------
-#          1  "yep"
-#          1  measure_allocation.rb:11
+  report_2.pretty_print
+  # Allocated String Report
+  # -----------------------------------
+  #          1  "yep"
+  #          1  measure_allocation.rb:11
+  #
+  #
+  # Retained String Report
+  # -----------------------------------
+  #          1  "yep"
+  #          1  measure_allocation.rb:11
 
-report_3.pretty_print
-# Allocated String Report
-# -----------------------------------
-#
-# Retained String Report
-# -----------------------------------
-```
+  report_3.pretty_print
+  # Allocated String Report
+  # -----------------------------------
+  #
+  # Retained String Report
+  # -----------------------------------
+  ```
+
+* What are the first line of heap dump that are not address ?
+(Add exemple)
+Partially answered from https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/
 
 > Manually inspecting this file might be of some interest, but we really need to aggregate information to make use of this data. Before we do that, let’s look at some of the keys in the generated JSON.
 > * generation: The garbage collection generation where the object was generated
@@ -96,35 +96,38 @@ report_3.pretty_print
   * constant   : ?
   * freeze obj : ?
 
+* Why people are always scared about time spent in GC when the Newrelic graph of our app show an average time spent in GC that is 0.0676% ?
+
 ## Resources
 
 Blog posts :
-https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/
-https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-ii/
-http://www.be9.io/2015/09/21/memory-leak/
-http://blog.skylight.io/hunting-for-leaks-in-ruby/
-http://eng.rightscale.com/2015/09/16/how-to-debug-ruby-memory-issues.html
-https://engineering.heroku.com/blogs/2015-02-04-incremental-gc/
+* https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/
+* https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-ii/
+* http://www.be9.io/2015/09/21/memory-leak/
+* http://blog.skylight.io/hunting-for-leaks-in-ruby/
+* http://eng.rightscale.com/2015/09/16/how-to-debug-ruby-memory-issues.html
+* https://engineering.heroku.com/blogs/2015-02-04-incremental-gc/
 
 Tools:
-https://github.com/SamSaffron/memory_profiler
-https://github.com/schneems/heap
-https://github.com/tmm1/rbtrace
-https://github.com/jondot/benchmark-ipsa
-https://github.com/schneems/derailed_benchmarks/
-https://github.com/tmm1/stackprof
+* https://github.com/SamSaffron/memory_profiler
+* https://github.com/schneems/heap
+* https://github.com/tmm1/rbtrace
+* https://github.com/jondot/benchmark-ipsa
+* https://github.com/schneems/derailed_benchmarks/
+* https://github.com/tmm1/stackprof
 
 Useful gist:
-Finding a Ruby memory leak using a time analysis https://gist.github.com/wvengen/f1097651c238b2f7f11d
+* Finding a Ruby memory leak using a time analysis https://gist.github.com/wvengen/f1097651c238b2f7f11d
 
 Learn with PR comments and ruby issues:
-https://github.com/schneems/heap_problem/pull/1
+* https://github.com/schneems/heap_problem/pull/1
 
 Book :
-Ruby under microscope
-Rails perf guide
+* Ruby under microscope
+* Rails perf guide
 
 Videos:
+* 
 
 And I would love to thanks especially Richard Schneems, Aaron Patterson, Sam Saffron...
 
