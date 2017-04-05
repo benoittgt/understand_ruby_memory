@@ -100,34 +100,61 @@ Partially answered from https://blog.codeship.com/the-definitive-guide-to-ruby-h
 
 ## Resources
 
-Blog posts :
+#### Blog post, gist, google doc :
 * https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/
 * https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-ii/
 * http://www.be9.io/2015/09/21/memory-leak/
 * http://blog.skylight.io/hunting-for-leaks-in-ruby/
 * http://eng.rightscale.com/2015/09/16/how-to-debug-ruby-memory-issues.html
 * https://engineering.heroku.com/blogs/2015-02-04-incremental-gc/
+* https://ruby-hacking-guide.github.io/
+* Finding a Ruby memory leak using a time analysis https://gist.github.com/wvengen/f1097651c238b2f7f11d
+* Google doc with Ruby memory Model : https://docs.google.com/document/d/1pVzU8w_QF44YzUCCab990Q_WZOdhpKolCIHaiXG-sPw/edit#heading=h.gh0cw4u6nbi5
+* Ruby 2.2.X AWS SDK memory leak : https://gist.github.com/quezacoatl/7657854f371edcb5d8e6
 
-Tools:
+#### Tools:
 * https://github.com/SamSaffron/memory_profiler
-* https://github.com/schneems/heap
+* https://github.com/schneems/heapy
 * https://github.com/tmm1/rbtrace
 * https://github.com/jondot/benchmark-ipsa
 * https://github.com/schneems/derailed_benchmarks/
 * https://github.com/tmm1/stackprof
+* http://tenderlove.github.io/heap-analyzer/
 
-Useful gist:
-* Finding a Ruby memory leak using a time analysis https://gist.github.com/wvengen/f1097651c238b2f7f11d
+#### Learn with PR comments and ruby issues:
+* Demonstrates that a non-retained object is sometimes still present in the heap : https://github.com/schneems/heap_problem/pull/1
+* Documenting Ruby memory model : https://bugs.ruby-lang.org/issues/12020
+* Decreased Object Allocation in Pathname.rb : https://bugs.ruby-lang.org/issues/11375
 
-Learn with PR comments and ruby issues:
-* https://github.com/schneems/heap_problem/pull/1
+#### Book :
+* [Ruby under microscope](http://patshaughnessy.net/ruby-under-a-microscope)
+* [Rails speed book](https://www.railsspeed.com/)
 
-Book :
-* Ruby under microscope
-* Rails perf guide
+#### Videos:
 
-Videos:
-* 
+Youtube video playlist : https://www.youtube.com/playlist?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7
 
+* https://www.youtube.com/watch?v=r0UjXixkBV8
+* https://www.youtube.com/watch?v=d21z5Croq1I
+* https://www.youtube.com/watch?v=yxhrYiqatdA
+* https://www.youtube.com/watch?v=oVqu0D-ibOA
+* https://www.youtube.com/watch?v=gtQmWk8mCRs
+* https://www.youtube.com/watch?v=ViUvz4FCDxg
+* https://www.youtube.com/watch?v=F57J1vedlx0
+* https://www.youtube.com/watch?v=B5ht3OTgwbE
+* https://www.youtube.com/watch?v=yl_zYzPiDto
+* https://www.youtube.com/watch?v=G1ZpHUp9NeU
+* https://www.youtube.com/watch?v=4YtBS0tvkjw
+* https://www.youtube.com/watch?v=lAI_uYQwh4s
+* https://www.youtube.com/watch?v=qzNNH2mnp08
+* https://www.youtube.com/watch?v=m2nj5sUE3hg
+* https://www.youtube.com/watch?v=lcQ-hIfiljA
+* https://www.youtube.com/watch?v=R8ifdjbFETo
+* https://www.youtube.com/watch?v=92zMKGt7Qlk
+* https://www.youtube.com/watch?v=hVqoX4QE2O0
+
+##### Other than youtube :
+* GoRuCo 2010 - Aman Gupta - memprof: the ruby level memory profiler : https://vimeo.com/12748731
+
+## Tanks 💕
 And I would love to thanks especially Richard Schneems, Aaron Patterson, Sam Saffron...
-
