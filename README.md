@@ -61,7 +61,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 | nil | no |
 | strings | yes |
 | symbols | [it depends?](https://www.sitepoint.com/symbol-gc-ruby-2-2/) |
-| constants | no |
+| constants | *If you remove a constant, the object it points to will be GC'd. But constants aren't really a type of object, it's just a name.* [source](https://github.com/benoittgt/understand_ruby_memory/issues/2) |
 | freeze objects | yes |
 | arrays | yes |
 | hashes | yes |
