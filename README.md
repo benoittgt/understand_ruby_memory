@@ -4,7 +4,7 @@ I initially made this blog post to add questions I have about ruby memory. I don
 
 I will add more questions in the future using pull requests so feel free to watch the repo.
 
-**Make a PR if you want to add links, answer to a question, or simply correct what I said. I would love that.**✨
+**Make a PR if you want to add links, answer to a question, or simply correct what I said. I would love that.** ✨
 
 ## Questions
 
@@ -74,7 +74,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
   > * references: The memory addresses of other objects that this object retains
   > There are other keys, but that’s enough for now. It’s worth noting that several of these are optional. For example if an object was generated before you started tracing object allocations, it won’t contain generation, file, or line information.
 
-* **[Partially answered]**j w What is allocated and what is not allocated ([*Not every object requires allocation*](https://youtu.be/gtQmWk8mCRs?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7&t=1869))?
+* **[Partially answered]** What is allocated and what is not allocated ([*Not every object requires allocation*](https://youtu.be/gtQmWk8mCRs?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7&t=1869))?
 
   The list is a mix of "types" that may be not clear enough
 
