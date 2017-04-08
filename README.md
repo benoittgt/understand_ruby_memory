@@ -119,26 +119,26 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
   require 'memory_profiler'
 
   report_1 = MemoryProfiler.report do
-  def get_me_directly
-  "hey"
-  end
-  get_me_directly
+    def get_me_directly
+      "hey"
+    end
+    get_me_directly
   end
 
   report_2 = MemoryProfiler.report do
-  ST = "yep"
-  def get_me_with_constant
-  ST
-  end
-  get_me_with_constant
+    ST = "yep"
+    def get_me_with_constant
+      ST
+    end
+    get_me_with_constant
   end
 
   report_3 = MemoryProfiler.report do
-  ST_FREEZE = "yop".freeze
-  def get_me_with_constant_freeze
-  ST_FREEZE
-  end
-  get_me_with_constant_freeze
+    ST_FREEZE = "yop".freeze
+    def get_me_with_constant_freeze
+      ST_FREEZE
+    end
+    get_me_with_constant_freeze
   end
 
   report_1.pretty_print
