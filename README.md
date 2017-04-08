@@ -1,6 +1,6 @@
 # Understand ruby memory usage 🤔
 
-I initially made this blog post to add questions I have about ruby memory. I don't have any CS degree, never did some C, understanding how ruby use memory is not an easy path. I'm passionate about this subject.
+I initially made this blog post to add questions I have about ruby memory (in MRI). I don't have any CS degree, never did some C, understanding how ruby use memory is not an easy path. I'm passionate about this subject.
 
 I will add more questions in the future using pull requests so feel free to watch the repo.
 
