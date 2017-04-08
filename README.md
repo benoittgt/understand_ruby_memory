@@ -10,7 +10,7 @@ I will add more questions in the future using pull requests so feel free to watc
 
 Here is a list of questions I have. Feel free to make a PR to answer them.
 
-* Retained Vs Allocated: Does an object that is allocated can turn to be retained because he is still present after few GC ?
+* Retained Vs Allocated: Does an object that is allocated can turn to be retained because he is still present after few GC (["retained" vs "allocated" from memory_profiler Readmd](https://github.com/SamSaffron/memory_profiler/blob/master/README.md)) ?
 
   Yes. The term "allocated" vs "retained" may vary depending on the tool you use, but, for example, in `memory_profiler`, "retained" means "survived a major GC".
 
