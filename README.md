@@ -10,7 +10,7 @@ I will add more questions in the future using pull requests so feel free to watc
 
 Here is a list of questions I have. Feel free to make a PR to answer them.
 
-* Retained Vs Allocated: Does an object that is allocated can turn to be retained because he is still present after few GC (["retained" vs "allocated" from memory_profiler Readmd](https://github.com/SamSaffron/memory_profiler/blob/master/README.md)) ?
+* **[Answered]** Retained Vs Allocated: Does an object that is allocated can turn to be retained because he is still present after few GC (["retained" vs "allocated" from memory_profiler Readmd](https://github.com/SamSaffron/memory_profiler/blob/master/README.md)) ?
 
   Yes. The term "allocated" vs "retained" may vary depending on the tool you use, but, for example, in `memory_profiler`, "retained" means "survived a major GC".
 
@@ -108,7 +108,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 | hashes | yes |
 | what else? | ? |
 
-* Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% ?
+* **[Partially answered]** Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% ?
 
 [Nate Berkopec's opinion](https://github.com/benoittgt/understand_ruby_memory/pull/5) - most people *assume* garbage collection takes a lot of time in a GC'd language. GC languages are slower than non-GC'd languages, therefore it must be GC that is slow. However, it's not just *GC* but *allocation* and the record keeping that goes along with it that slows Ruby programs. Creating an object isn't just the simple process of writing to some memory location, we have to do a bunch of checks, look for free space in the ObjectSpace, etc etc. So a GC'd language *is* slower, but we actually incur most of the cost *while running the program*, not *when garbage collecting*.
 
