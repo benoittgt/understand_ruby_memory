@@ -172,16 +172,16 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 ## Resources
 
 #### Blog post, gist, google doc :
-* https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/
-* https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-ii/
-* http://www.be9.io/2015/09/21/memory-leak/
-* http://blog.skylight.io/hunting-for-leaks-in-ruby/
-* http://eng.rightscale.com/2015/09/16/how-to-debug-ruby-memory-issues.html
-* https://engineering.heroku.com/blogs/2015-02-04-incremental-gc/
-* https://ruby-hacking-guide.github.io/
-* Finding a Ruby memory leak using a time analysis https://gist.github.com/wvengen/f1097651c238b2f7f11d
-* Google doc with Ruby memory Model : https://docs.google.com/document/d/1pVzU8w_QF44YzUCCab990Q_WZOdhpKolCIHaiXG-sPw/edit#heading=h.gh0cw4u6nbi5
-* Ruby 2.2.X AWS SDK memory leak : https://gist.github.com/quezacoatl/7657854f371edcb5d8e6
+* The Definitive Guide to Ruby Heap Dumps by Richard Schneems ([part 1](https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-i/), [part 2](https://blog.codeship.com/the-definitive-guide-to-ruby-heap-dumps-part-ii/))
+* [How I spent two weeks hunting a memory leak in Ruby by Oleg Dashevskii](http://www.be9.io/2015/09/21/memory-leak/)
+* [What I Learned About Hunting Memory Leaks in Ruby 2.1 by Peter Wagenet](http://blog.skylight.io/hunting-for-leaks-in-ruby/)
+* [How to debug Ruby memory issues by Callum Dryden](http://eng.rightscale.com/2015/09/16/how-to-debug-ruby-memory-issues.html)
+* [Incremental Garbage Collection in Ruby 2.2 by Koichi Sasada](https://engineering.heroku.com/blogs/2015-02-04-incremental-gc/)
+* [Ruby Hacking Guide by many good people](https://ruby-hacking-guide.github.io/)
+* [Demystifying the Ruby GC by Sam Saffron](https://samsaffron.com/archive/2013/11/22/demystifying-the-ruby-gc)
+* [Finding a Ruby memory leak using a time analysis by wvengen](https://gist.github.com/wvengen/f1097651c238b2f7f11d)
+* [Google doc with Ruby memory Model](https://docs.google.com/document/d/1pVzU8w_QF44YzUCCab990Q_WZOdhpKolCIHaiXG-sPw/edit#heading=h.gh0cw4u6nbi5)
+* [Ruby 2.2.X AWS SDK memory leak by Johan Lundahl](https://gist.github.com/quezacoatl/7657854f371edcb5d8e6)
 
 #### Tools:
 * https://github.com/SamSaffron/memory_profiler
@@ -194,10 +194,10 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 * https://github.com/michaelherold/benchmark-memory
 
 #### Learn with PR comments and ruby issues:
-* Demonstrates that a non-retained object is sometimes still present in the heap : https://github.com/schneems/heap_problem/pull/1
-* Documenting Ruby memory model : https://bugs.ruby-lang.org/issues/12020
-* Decreased Object Allocation in Pathname.rb : https://bugs.ruby-lang.org/issues/11375
-* Derailed benchmark explanations : https://github.com/schneems/derailed_benchmarks/issues/62
+* [Demonstrates that a non-retained object is sometimes still present in the heap](https://github.com/schneems/heap_problem/pull/1)
+* [Documenting Ruby memory model](https://bugs.ruby-lang.org/issues/12020)
+* [Decreased Object Allocation in Pathname.rb](https://bugs.ruby-lang.org/issues/11375)
+* [Derailed benchmark explanations](https://github.com/schneems/derailed_benchmarks/issues/62)
 
 #### Book :
 * [Ruby under microscope](http://patshaughnessy.net/ruby-under-a-microscope)
@@ -208,7 +208,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 Youtube video playlist : https://www.youtube.com/playlist?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7
 
 ##### Other than youtube :
-* GoRuCo 2010 - Aman Gupta - memprof: the ruby level memory profiler : https://vimeo.com/12748731
+* [GoRuCo 2010 - Aman Gupta - memprof: the ruby level memory profiler](https://vimeo.com/12748731)
 
 ## Tanks 💕
 And I would love to thanks especially Richard Schneems, Aaron Patterson, Sam Saffron...
