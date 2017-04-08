@@ -191,6 +191,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 * https://github.com/schneems/derailed_benchmarks/
 * https://github.com/tmm1/stackprof
 * http://tenderlove.github.io/heap-analyzer/
+* https://github.com/michaelherold/benchmark-memory
 
 #### Learn with PR comments and ruby issues:
 * Demonstrates that a non-retained object is sometimes still present in the heap : https://github.com/schneems/heap_problem/pull/1
