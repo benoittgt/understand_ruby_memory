@@ -171,6 +171,24 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
   # -----------------------------------
   ```
 
+* Why generation number in heap dump are in random order?
+
+  When you read heap dump you have lines like this :
+  ```ruby
+  {"address":"0x7fb27108e3e8", "type":"IMEMO", "class":"0x7fb26aa79cd8", "references":["0x7fb26aa7aa20", "0x7fb26aa7b0b0", "0x7fb26aa7a9d0"], "file":"/Users/bti/.rvm/gems/ruby-2.3.0/gems/activerecord-4.2.5.2/lib/active_record/attributes.rb", "line":106, "method":"reset_column_information", "generation":53, "memsize":40, "flags":{"wb_protected":true, "old":true, "uncollectible":true, "marked":true}}
+  ```
+  We can read on [How I spent two weeks hunting a memory leak](http://www.be9.io/2015/09/21/memory-leak/) that:
+  > you can enable object creation tracing, and for each newly created object the location where it was instantiated (source file, line) will be saved and accessible later.
+
+  I generated a heap dump for few requests on a Rails app... and extract generation number in the dump with `jq`.
+  ```sh
+  $ cat tmp/2017-04-10T19:32:45+02:00-heap.dump | jq 'select(.generation != null) | "\(.generation) "' -j
+  ... 57 57 57 57 58 51 58 58 58 58 58 51 58 58 58 58 58 58 51 58 58 58 58 58 51 58 51 51 51 51 51 51 51 51 51 51 ...
+  ```
+  As you can see generation number are in random order. I don't understand why. 
+
+  I read [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/) and [Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29) without finding the answer.
+
 * Other questions will follow
 
 ## Resources
@@ -186,6 +204,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 * [Finding a Ruby memory leak using a time analysis by wvengen](https://gist.github.com/wvengen/f1097651c238b2f7f11d)
 * [Google doc with Ruby memory Model](https://docs.google.com/document/d/1pVzU8w_QF44YzUCCab990Q_WZOdhpKolCIHaiXG-sPw/edit#heading=h.gh0cw4u6nbi5)
 * [Ruby 2.2.X AWS SDK memory leak by Johan Lundahl](https://gist.github.com/quezacoatl/7657854f371edcb5d8e6)
+* [Ruby 2.1: objspace.so by Aman Gupta](http://tmm1.net/ruby21-objspace/)
 
 #### Tools:
 * https://github.com/SamSaffron/memory_profiler
