@@ -217,6 +217,7 @@ Other questions will follow
 * [Google doc with Ruby memory Model](https://docs.google.com/document/d/1pVzU8w_QF44YzUCCab990Q_WZOdhpKolCIHaiXG-sPw/edit#heading=h.gh0cw4u6nbi5)
 * [Ruby 2.2.X AWS SDK memory leak by Johan Lundahl](https://gist.github.com/quezacoatl/7657854f371edcb5d8e6)
 * [Ruby 2.1: objspace.so by Aman Gupta](http://tmm1.net/ruby21-objspace/)
+* [Ruby Under The Hood: Memory Layout of an Object by	Jesus Castello](http://www.blackbytes.info/2017/04/memory-layout-of-an-object/)
 
 #### Tools:
 * https://github.com/SamSaffron/memory_profiler
