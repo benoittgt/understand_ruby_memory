@@ -8,13 +8,23 @@ I will add more questions in the future using pull requests so feel free to watc
 
 ## Questions
 
-Here is a list of questions I have. Feel free to make a PR to answer them.
+* [Does an object that is allocated can turn to be retained because he is still present after few GC **[Answered]**?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#does-an-object-that-is-allocated-can-turn-to-be-retained-because-he-is-still-present-after-few-gc-answered-)
+* [What are the first line of a heap dump that are not address **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#what-are-the-first-line-of-a-heap-dump-that-are-not-address-answered-)
+* [What is allocated and what is not allocated **[Partially answered]** ?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#partially-answered-what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation)
+* [What is garbage collected **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#what-is-garbage-collected-)
+* [Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#why-people-are-always-scared-about-time-spent-in-gc-when-the-newrelic-graph-of-my-app-show-an-average-time-spent-in-gc-that-is-00676-)
+* [Why when using a frozen string we don't allocate memory **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#why-when-using-a-frozen-string-we-dont-allocate-memory-)
+* [Why generation number in heap dump are in random order **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory/tree/add_question_list#why-generation-number-in-heap-dump-are-in-random-order-)
 
-* **[Answered]** Retained Vs Allocated: Does an object that is allocated can turn to be retained because he is still present after few GC (["retained" vs "allocated" from memory_profiler Readmd](https://github.com/SamSaffron/memory_profiler/blob/master/README.md)) ?
+---
+
+#### Does an object that is allocated can turn to be retained because he is still present after few GC **[Answered]** ? 
+
+  From (["retained" vs "allocated" from memory_profiler README](https://github.com/SamSaffron/memory_profiler/blob/master/README.md))
 
   Yes. The term "allocated" vs "retained" may vary depending on the tool you use, but, for example, in `memory_profiler`, "retained" means "survived a major GC".
 
-* **[Answered]** What are the first line of a heap dump that are not address ?
+#### What are the first line of a heap dump that are not address **[Answered]** ?
 
   Header of the heap dump [from heapy gem](https://github.com/schneems/heapy/tree/master/spec/fixtures/dumps) (carefull is 78mo text file)
 
@@ -25,7 +35,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
   {"type":"ROOT", "root":"global_list", "references":["0x7fb4759d3678", "0x7fb4759d3768", "0x7fb4759d3790", "0x7fb4759d37e0", "0x7fb4759d3808", "0x7fb4759d3830", "0x7fb4759d38d0", "0x7fb4759d3920", "0x7fb4759d3970", "0x7fb4759d3998", "0x7fb4759d39e8", "0x7fb4759d3a10", "0x7fb4759d3a38", "0x7fb4759d3a88", "0x7fb4759d3ab0", "0x7fb4759d3ad8", "0x7fb4759d3b00", "0x7fb4759d3b28", "0x7fb4759d3b78", "0x7fb4759d3ba0", "0x7fb4759d3bc8", "0x7fb4759d3bf0", "0x7fb4759d3c18", "0x7fb4759d3c40", "0x7fb4759d3c68", "0x7fb4759d3c90", "0x7fb4759d3cb8", "0x7fb4759d3ce0", "0x7fb4759d3d58", "0x7fb4759d3dd0", "0x7fb4759d3df8", "0x7fb4759d3e20", "0x7fb4759d3e70", "0x7fb4759d3ee8", "0x7fb4759d3f10", "0x7fb4759d3fb0", "0x7fb474135fa8", "0x7fb4741353c8", "0x7fb474134270", "0x7fb474134298", "0x7fb4741342c0", "0x7fb4741342e8", "0x7fb474134310", "0x7fb474134338", "0x7fb474134360", "0x7fb474134388", "0x7fb4741343b0", "0x7fb4741343d8", "0x7fb474134428", "0x7fb474134450", "0x7fb474134478", "0x7fb4741344a0", "0x7fb4741344c8", "0x7fb4741344f0", "0x7fb474134518", "0x7fb474134540", "0x7fb474134568", "0x7fb474134590", "0x7fb474134608", "0x7fb47481da50", "0x7fb47481dac8", "0x7fb47481db40", "0x7fb47481db68", "0x7fb47481dd20", "0x7fb47481dd98", "0x7fb47481dfa0", "0x7fb47481dfc8", "0x7fb47481e018", "0x7fb47481e040", "0x7fb47481e248", "0x7fb47481e388", "0x7fb47481e5e0", "0x7fb47481e608", "0x7fb47481e6a8", "0x7fb47481e770", "0x7fb47481e7e8", "0x7fb47481e8d8", "0x7fb47481e928", "0x7fb47481e9c8", "0x7fb47481ea40", "0x7fb47481eae0", "0x7fb47481ec48", "0x7fb47481ed88", "0x7fb47481ee28", "0x7fb47481ee50", "0x7fb47481f058", "0x7fb47481f0d0", "0x7fb47481f0f8", "0x7fb47481f210", "0x7fb47481f288", "0x7fb47481f378", "0x7fb47481f418", "0x7fb47481f440", "0x7fb47481f4b8", "0x7fb47481f508", "0x7fb47481f710", "0x7fb47481f738", "0x7fb47481f760", "0x7fb47481fad0", "0x7fb47481fb20", "0x7fb47481fb70", "0x7fb47481fbe8", "0x7fb47584f270", "0x7fb475874700", "0x7fb475874a20", "0x7fb4769904d0", "0x7fb4740dff40"]}
   ```
 
-  **Answered by Aaron Patterson https://github.com/benoittgt/understand_ruby_memory/issues/1**
+  *Answer by Aaron Patterson https://github.com/benoittgt/understand_ruby_memory/issues/1*
 
   > Those are "ROOTS" (the ones with type = "ROOTS").  The system has various "roots".
 
@@ -76,7 +86,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
   > * references: The memory addresses of other objects that this object retains
   > There are other keys, but that’s enough for now. It’s worth noting that several of these are optional. For example if an object was generated before you started tracing object allocations, it won’t contain generation, file, or line information.
 
-* **[Partially answered]** What is allocated and what is not allocated ([*Not every object requires allocation*](https://youtu.be/gtQmWk8mCRs?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7&t=1869))?
+#### **[Partially answered]** What is allocated and what is not allocated ([*Not every object requires allocation*](https://youtu.be/gtQmWk8mCRs?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7&t=1869))?
 
   The list is a mix of "types" that may be not clear enough
 
@@ -93,7 +103,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 | hashes | yes |
 | what else? | ? |
 
-* What is garbage collected ?
+#### What is garbage collected ?
 
 | 🐕 | garbage collected?  |
 |----------------|-------------|
@@ -108,11 +118,11 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 | hashes | yes |
 | what else? | ? |
 
-* **[Partially answered]** Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% ?
+#### Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% ?
 
 [Nate Berkopec's opinion](https://github.com/benoittgt/understand_ruby_memory/pull/5) - most people *assume* garbage collection takes a lot of time in a GC'd language. GC languages are slower than non-GC'd languages, therefore it must be GC that is slow. However, it's not just *GC* but *allocation* and the record keeping that goes along with it that slows Ruby programs. Creating an object isn't just the simple process of writing to some memory location, we have to do a bunch of checks, look for free space in the ObjectSpace, etc etc. So a GC'd language *is* slower, but we actually incur most of the cost *while running the program*, not *when garbage collecting*.
 
-* Why when using a frozen string we don't allocate memory ?
+#### Why when using a frozen string we don't allocate memory ?
   I use a method because it represents "patterns" we discuss with my team, I try to measure the number of allocations betweens calling directly string, calling a string set into a constant outside the function and calling a string frozen in a constant outside the function.
 
   ```ruby
@@ -171,7 +181,7 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
   # -----------------------------------
   ```
 
-* Why generation number in heap dump are in random order?
+#### Why generation number in heap dump are in random order ?
 
   When you read heap dump you have lines like this :
   ```ruby
@@ -189,7 +199,9 @@ Here is a list of questions I have. Feel free to make a PR to answer them.
 
   I read [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/) and [Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29) without finding the answer.
 
-* Other questions will follow
+Other questions will follow
+
+---
 
 ## Resources
 
