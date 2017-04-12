@@ -205,7 +205,6 @@ I will add more questions in the future using pull requests so feel free to watc
   ... 57 57 57 57 58 51 58 58 58 58 58 51 58 58 58 58 58 58 51 58 58 58 58 58 51 58 51 51 51 51 51 51 51 51 51 51 ...
   ```
 
-  I read [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/) and [Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29) without finding the answer.
   As you can see generation number are in random order. After watching [Methods of Memory Management in MRI by Aaron Patterson](https://youtu.be/gtQmWk8mCRs?t=1185) it's a normal behavior to realocate in other generation. 
   
   > In order to classify objects as new or old the GC does the following: whenever it marks an object in a mark-phase (which means that the object will survive this GC run) it promotes it to the old generation. *[Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)*
@@ -213,7 +212,7 @@ I will add more questions in the future using pull requests so feel free to watc
   > A generational GC (also known as ephemeral GC) divides objects into generations and, on most cycles, will place only the objects of a subset of generations into the initial white (condemned) set. *[Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29)*
   
   So what I think is :
-  * the number of generation is related to the age of the objects allocations (from Wikipedia *many generational garbage collectors use separate memory regions for different ages of objects*). In my case frequent allocations on generation 51 mean lot's of fresh new objects.
+  * the number of generations is related to the age of the objects allocations (from Wikipedia *many generational garbage collectors use separate memory regions for different ages of objects*). In my case frequent allocations on generation 51 mean lot's of fresh new objects.
   * new objects allocations in younger generations means young objects
   * last generations only keep older objects
   
