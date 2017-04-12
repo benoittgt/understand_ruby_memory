@@ -13,7 +13,7 @@ I will add more questions in the future using pull requests so feel free to watc
 * [What is allocated and what is not allocated **[Partially answered]** ?](https://github.com/benoittgt/understand_ruby_memory#partially-answered-what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation)
 * [What is garbage collected **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-garbage-collected-)
 * [Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-people-are-always-scared-about-time-spent-in-gc-when-the-newrelic-graph-of-my-app-show-an-average-time-spent-in-gc-that-is-00676-)
-* [Why when using a frozen string we don't allocate memory **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-when-using-a-frozen-string-we-dont-allocate-memory-)
+* [Why when using a frozen string we don't allocate memory **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-when-using-a-frozen-string-we-dont-allocate-memory-)
 * [Why generation number in heap dump are in random order **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
 
 ---
@@ -86,7 +86,7 @@ I will add more questions in the future using pull requests so feel free to watc
   > * references: The memory addresses of other objects that this object retains
   > There are other keys, but that’s enough for now. It’s worth noting that several of these are optional. For example if an object was generated before you started tracing object allocations, it won’t contain generation, file, or line information.
 
-#### **[Partially answered]** What is allocated and what is not allocated ([*Not every object requires allocation*](https://youtu.be/gtQmWk8mCRs?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7&t=1869))?
+#### What is allocated and what is not allocated ([*Not every object requires allocation*](https://youtu.be/gtQmWk8mCRs?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7&t=1869)) **[Partially answered]** ?
 
   The list is a mix of "types" that may be not clear enough
 
@@ -122,7 +122,7 @@ I will add more questions in the future using pull requests so feel free to watc
 
 [Nate Berkopec's opinion](https://github.com/benoittgt/understand_ruby_memory/pull/5) - most people *assume* garbage collection takes a lot of time in a GC'd language. GC languages are slower than non-GC'd languages, therefore it must be GC that is slow. However, it's not just *GC* but *allocation* and the record keeping that goes along with it that slows Ruby programs. Creating an object isn't just the simple process of writing to some memory location, we have to do a bunch of checks, look for free space in the ObjectSpace, etc etc. So a GC'd language *is* slower, but we actually incur most of the cost *while running the program*, not *when garbage collecting*.
 
-#### Why when using a frozen string we don't allocate memory ?
+#### Why when using a frozen string we don't allocate memory **[Answered]** ?
   I use a method because it represents "patterns" we discuss with my team, I try to measure the number of allocations betweens calling directly string, calling a string set into a constant outside the function and calling a string frozen in a constant outside the function.
 
   ```ruby
@@ -180,7 +180,13 @@ I will add more questions in the future using pull requests so feel free to watc
   # Retained String Report
   # -----------------------------------
   ```
-
+  
+  As [mentionned by Sam Saffron](https://github.com/benoittgt/understand_ruby_memory/pull/5#issuecomment-293259216) it can happen when :
+  
+  > it was allocated earlier when the ruby code was parsed. You can confirm this by loading a file and putting the load in a mem profiler block.
+  
+  Check and updated benchmark that doesn't show this weird behavior : https://github.com/benoittgt/understand_ruby_memory/blob/master/memory_freeze_benchmark.rb
+  
 #### Why generation number in heap dump are in random order ?
 
   When you read heap dump you have lines like this :
