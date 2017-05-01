@@ -224,7 +224,7 @@ Other questions will follow
 * [Ruby 2.2.X AWS SDK memory leak by Johan Lundahl](https://gist.github.com/quezacoatl/7657854f371edcb5d8e6)
 * [Ruby 2.1: objspace.so by Aman Gupta](http://tmm1.net/ruby21-objspace/)
 * [Ruby Under The Hood: Memory Layout of an Object by	Jesus Castello](http://www.blackbytes.info/2017/04/memory-layout-of-an-object/)
-* [The Fastest Way to Generate a Heap Dump on Heroku by Rcihard Schneems](https://www.schneems.com/2017/05/01/the-fastest-way-to-generate-a-heap-dump-on-heroku/)
+* [The Fastest Way to Generate a Heap Dump on Heroku by Richard Schneems](https://www.schneems.com/2017/05/01/the-fastest-way-to-generate-a-heap-dump-on-heroku/)
 
 #### Tools:
 * https://github.com/SamSaffron/memory_profiler
