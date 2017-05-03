@@ -104,6 +104,78 @@ I will add more questions in the future using pull requests so feel free to watc
    *      "hi".freeze.object_id == "hi".freeze.object_id # => true
  ```
 
+ And from an email of Koichi Sasada.
+
+ > Ruby has internal types and all objects are belong to only one type.
+
+ > The followings are all types.
+  *from include/ruby/ruby.h*
+  ```c
+  #define T_NONE   RUBY_T_NONE
+  #define T_NIL    RUBY_T_NIL
+  #define T_OBJECT RUBY_T_OBJECT
+  #define T_CLASS  RUBY_T_CLASS
+  #define T_ICLASS RUBY_T_ICLASS
+  #define T_MODULE RUBY_T_MODULE
+  #define T_FLOAT  RUBY_T_FLOAT
+  #define T_STRING RUBY_T_STRING
+  #define T_REGEXP RUBY_T_REGEXP
+  #define T_ARRAY  RUBY_T_ARRAY
+  #define T_HASH   RUBY_T_HASH
+  #define T_STRUCT RUBY_T_STRUCT
+  #define T_BIGNUM RUBY_T_BIGNUM
+  #define T_FILE   RUBY_T_FILE
+  #define T_FIXNUM RUBY_T_FIXNUM
+  #define T_TRUE   RUBY_T_TRUE
+  #define T_FALSE  RUBY_T_FALSE
+  #define T_DATA   RUBY_T_DATA
+  #define T_MATCH  RUBY_T_MATCH
+  #define T_SYMBOL RUBY_T_SYMBOL
+  #define T_RATIONAL RUBY_T_RATIONAL
+  #define T_COMPLEX RUBY_T_COMPLEX
+  #define T_IMEMO  RUBY_T_IMEMO
+  #define T_UNDEF  RUBY_T_UNDEF
+  #define T_NODE   RUBY_T_NODE
+  #define T_ZOMBIE RUBY_T_ZOMBIE
+  ```
+
+  > We call types as T_xxx.
+
+  ```
+  Internal:
+     T_NONE (reserved, not used)
+     T_DATA
+     T_IMEMO
+     T_NODE
+     T_ZOMBIE
+
+  Not allocated:
+     T_NIL (nil)
+     T_FIXNUM (small integers)
+     T_TRUE (true)
+     T_FALSE (false)
+     T_UNDEF (internal use)
+
+  Allocated (normal)
+     T_OBJECT
+     T_CLASS
+     T_ICLASS (internal use, to implement Module#include)
+     T_MODULE
+     T_FLOAT (now Ruby has flonum tech so that most of Float values
+              are not allocated on 64 bit CPU)
+     T_STRING
+     T_REGEXP
+     T_ARRAY
+     T_HASH
+     T_STRUCT
+     T_BIGNUM (Integer representation)
+     T_FILE
+     T_MATCH
+     T_SYMBOL (there are two symbols: allocated or not allocated)
+     T_RATIONAL
+     T_COMPLEX
+  ```
+
 #### What is garbage collected **[Not Answered]**  ?
 
   What is garbage collected or not ?
@@ -271,4 +343,4 @@ Youtube video playlist : https://www.youtube.com/playlist?list=PLXvaGTBVk36uIVBG
 * [GoRuCo 2010 - Aman Gupta - memprof: the ruby level memory profiler](https://vimeo.com/12748731)
 
 ## Tanks 💕
-And I would love to thanks especially Richard Schneems, Aaron Patterson, Sam Saffron...
+And I would love to thanks especially Richard Schneems, Aaron Patterson, Sam Saffron, Nate Berkopec, Koichi Sasada...
