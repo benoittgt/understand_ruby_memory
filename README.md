@@ -15,7 +15,7 @@ I will add more questions in the future using pull requests so feel free to watc
 * [What is garbage collected **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-garbage-collected-)
 * [Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-people-are-always-scared-about-time-spent-in-gc-when-the-newrelic-graph-of-my-app-show-an-average-time-spent-in-gc-that-is-00676-)
 * [Why when using a frozen string we don't allocate memory **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-when-using-a-frozen-string-we-dont-allocate-memory-)
-* [Why generation number in heap dump are in random order **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
+* [Why generation number in heap dump are in random order **[Partially answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
 
 ---
 
@@ -190,7 +190,7 @@ I will add more questions in the future using pull requests so feel free to watc
 
   Check and updated benchmark that doesn't show this weird behavior : https://github.com/benoittgt/understand_ruby_memory/blob/master/memory_freeze_benchmark.rb
 
-#### Why generation number in heap dump are in random order ?
+#### Why generation number in heap dump are in random order **[Partially answered]** ?
 
   When you read heap dump you have lines like this :
   ```ruby
@@ -199,14 +199,27 @@ I will add more questions in the future using pull requests so feel free to watc
   We can read on [How I spent two weeks hunting a memory leak](http://www.be9.io/2015/09/21/memory-leak/) that:
   > you can enable object creation tracing, and for each newly created object the location where it was instantiated (source file, line) will be saved and accessible later.
 
-  I generated a heap dump for few requests on a Rails app... and extract generation number in the dump with `jq`.
+  I generated a heap dump from a ruby program... and extract generation number in the dump with `jq`.
   ```sh
   $ cat tmp/2017-04-10T19:32:45+02:00-heap.dump | jq 'select(.generation != null) | "\(.generation) "' -j
   ... 57 57 57 57 58 51 58 58 58 58 58 51 58 58 58 58 58 58 51 58 58 58 58 58 51 58 51 51 51 51 51 51 51 51 51 51 ...
   ```
-  As you can see generation number are in random order. I don't understand why.
 
   I read [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/) and [Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29) without finding the answer.
+  As you can see generation number are in random order. After watching [Methods of Memory Management in MRI by Aaron Patterson](https://youtu.be/gtQmWk8mCRs?t=1185) it's a normal behavior to realocate in other generation. 
+  
+  > In order to classify objects as new or old the GC does the following: whenever it marks an object in a mark-phase (which means that the object will survive this GC run) it promotes it to the old generation. *[Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)*
+  
+  > A generational GC (also known as ephemeral GC) divides objects into generations and, on most cycles, will place only the objects of a subset of generations into the initial white (condemned) set. *[Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29)*
+  
+  So what I think is :
+  * the number of generation is related to the age of the objects allocations (from Wikipedia *many generational garbage collectors use separate memory regions for different ages of objects*). In my case frequent allocations on generation 51 mean lot's of fresh new objects.
+  * new objects allocations in younger generations means young objects
+  * last generations only keep older objects
+  
+  But I'm not sure. Am I correct?
+
+=======
 
 Other questions will follow
 
