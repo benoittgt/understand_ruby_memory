@@ -10,12 +10,12 @@ I will add more questions in the future using pull requests so feel free to watc
 
 * [Does an object that is allocated can turn to be retained because he is still present after few GC **[Answered]**?](https://github.com/benoittgt/understand_ruby_memory#does-an-object-that-is-allocated-can-turn-to-be-retained-because-he-is-still-present-after-few-gc-answered-)
 * [What are the first line of a heap dump that are not address **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-are-the-first-line-of-a-heap-dump-that-are-not-address-answered-)
-* [What is allocated and what is not allocated **[Partially answered]** ?](https://github.com/benoittgt/understand_ruby_memory#partially-answered-what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation)
+* [What is allocated and what is not allocated **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#partially-answered-what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation)
 * [What is allocated **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation-answered-)
 * [What is garbage collected **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-garbage-collected-)
 * [Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-people-are-always-scared-about-time-spent-in-gc-when-the-newrelic-graph-of-my-app-show-an-average-time-spent-in-gc-that-is-00676-)
 * [Why when using a frozen string we don't allocate memory **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-when-using-a-frozen-string-we-dont-allocate-memory-)
-* [Why generation number in heap dump are in random order **[Partially answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
+* [Why generation number in heap dump are in random order **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
 
 ---
 
@@ -262,7 +262,7 @@ I will add more questions in the future using pull requests so feel free to watc
 
   Check and updated benchmark that doesn't show this weird behavior : https://github.com/benoittgt/understand_ruby_memory/blob/master/memory_freeze_benchmark.rb
 
-#### Why generation number in heap dump are in random order **[Partially answered]** ?
+#### Why generation number in heap dump are in random order **[Answered]** ?
 
   When you read heap dump you have lines like this :
   ```ruby
@@ -283,12 +283,8 @@ I will add more questions in the future using pull requests so feel free to watc
   
   > A generational GC (also known as ephemeral GC) divides objects into generations and, on most cycles, will place only the objects of a subset of generations into the initial white (condemned) set. *[Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Generational_GC_.28ephemeral_GC.29)*
   
-  So what I think is :
-  * the number of generations is related to the age of the objects allocations (from Wikipedia *many generational garbage collectors use separate memory regions for different ages of objects*). In my case frequent allocations on generation 51 mean lot's of fresh new objects.
-  * new objects allocations in younger generations means young objects
-  * last generations only keep older objects
-  
-  But I'm not sure. Am I correct?
+  As Koichi said :
+  > Generation is an age of an object. If you measure ages of people walking in a street, it will be random numbers.
 
 =======
 
