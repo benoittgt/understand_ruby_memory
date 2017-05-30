@@ -335,6 +335,9 @@ Other questions will follow
 
 Youtube video playlist : https://www.youtube.com/playlist?list=PLXvaGTBVk36uIVBGKI72vqd9BFcMmPFI7
 
+#### Audio:
+* [Bikeshed episode with Aaron Patterson about Ruby and Rails upgrades, and the goal of making Ruby 3 three times faster than Ruby 2](http://bikeshed.fm/111)
+
 ##### Other than youtube :
 * [GoRuCo 2010 - Aman Gupta - memprof: the ruby level memory profiler](https://vimeo.com/12748731)
 
