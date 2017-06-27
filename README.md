@@ -16,6 +16,7 @@ I will add more questions in the future using pull requests so feel free to watc
 * [Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-people-are-always-scared-about-time-spent-in-gc-when-the-newrelic-graph-of-my-app-show-an-average-time-spent-in-gc-that-is-00676-)
 * [Why when using a frozen string we don't allocate memory **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-when-using-a-frozen-string-we-dont-allocate-memory-)
 * [Why generation number in heap dump are in random order **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
+* [Why keywords arguments will create less garbage collected objects after 2.2 **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-keywords-arguments-will-create-less-garbage-collected-objects-after-22-answered-)
 
 ---
 
@@ -286,6 +287,85 @@ I will add more questions in the future using pull requests so feel free to watc
   As Koichi said :
   > Generation is an age of an object. If you measure ages of people walking in a street, it will be random numbers.
 
+#### Why keywords arguments will create less garbage collected objects after 2.2 **[Answered]** ?
+
+I [asked](https://twitter.com/Benoit_Tgt/status/879203026434744320) [Akira Matsuda](https://github.com/amatsuda) after watching [Ruby 2 in Ruby on Rails - RedDotRubyConf 2017
+](https://youtu.be/RBV4Mg34DR0) about something he mentions:
+
+> Ruby 2 kwargs ... create less garbage collected objects (maybe)
+
+His answer is a [gist](https://gist.github.com/amatsuda/5a9091052ac0625bc85d8a2c67162ed4) with an allocation_tracer measure between ruby 2.1.10 and ruby 2.2.7 on different methods with different "type" of params in method.
+
+```ruby
+require 'allocation_tracer'
+require 'active_support/core_ext/array/extract_options'
+require 'pp'
+
+# Active Support
+def foo1(options = {})
+  options[:x] || 1
+end
+
+# Ruby
+def foo2(x: 1)
+  x
+end
+
+# Active Support, varargs
+def bar1(*args)
+  options = args.extract_options!
+  options[:y] || 1
+end
+
+# Ruby, varargs
+def bar2(*args, y: 1)
+  y
+end
+
+ObjectSpace::AllocationTracer.setup(%i{path line type})
+
+
+foo1 x: 2
+foo2 x: 2
+bar1 y: 2
+bar2 y: 2
+
+pp activesupport_1: ObjectSpace::AllocationTracer.trace {
+  foo1 x: 2
+}
+pp kwargs_1: ObjectSpace::AllocationTracer.trace {
+  foo2 x: 2
+}
+
+pp activesupport_2: ObjectSpace::AllocationTracer.trace {
+  bar1 y: 2
+}
+pp kwargs_2: ObjectSpace::AllocationTracer.trace {
+  bar2 y: 2
+}
+```
+That returns
+```
+# ruby 2.1.10p492 (2016-04-01 revision 54464) [x86_64-darwin15.0]
+
+{:activesupport_1=>{["kwargs_allocation.rb", 31, :T_HASH]=>[1, 0, 0, 0, 0, 0]}}
+{:kwargs_1=>{["kwargs_allocation.rb", 34, :T_HASH]=>[2, 0, 0, 0, 0, 0]}}
+{:activesupport_2=>
+  {["kwargs_allocation.rb", 38, :T_HASH]=>[1, 0, 0, 0, 0, 0],
+   ["kwargs_allocation.rb", 38, :T_ARRAY]=>[1, 0, 0, 0, 0, 0]}}
+{:kwargs_2=>
+  {["kwargs_allocation.rb", 41, :T_HASH]=>[2, 0, 0, 0, 0, 0],
+   ["kwargs_allocation.rb", 41, :T_ARRAY]=>[1, 0, 0, 0, 0, 0]}}
+
+# ruby 2.2.7p470 (2017-03-28 revision 58194) [x86_64-darwin15]..ruby 2.5.0dev (2017-05-19 trunk 58790) [x86_64-darwin15]
+
+{:activesupport_1=>{["kwargs_allocation.rb", 31, :T_HASH]=>[1, 0, 0, 0, 0, 0]}}
+{:kwargs_1=>{}}
+{:activesupport_2=>
+  {["kwargs_allocation.rb", 38, :T_HASH]=>[1, 0, 0, 0, 0, 0],
+   ["kwargs_allocation.rb", 38, :T_ARRAY]=>[2, 0, 0, 0, 0, 0]}}
+{:kwargs_2=>{["kwargs_allocation.rb", 41, :T_ARRAY]=>[1, 0, 0, 0, 0, 0]}}
+```
 =======
 
 Other questions will follow
