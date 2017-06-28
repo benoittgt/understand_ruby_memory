@@ -406,6 +406,7 @@ Other questions will follow
 * [Documenting Ruby memory model](https://bugs.ruby-lang.org/issues/12020)
 * [Decreased Object Allocation in Pathname.rb](https://bugs.ruby-lang.org/issues/11375)
 * [Derailed benchmark explanations](https://github.com/schneems/derailed_benchmarks/issues/62)
+* [libgit2/rugged - Memory leak caused by diffs?](https://github.com/libgit2/rugged/issues/695#issuecomment-308582965)
 
 #### Book :
 * [Ruby under microscope](http://patshaughnessy.net/ruby-under-a-microscope)
