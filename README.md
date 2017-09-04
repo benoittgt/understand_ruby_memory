@@ -388,6 +388,8 @@ Other questions will follow
 * [Ruby 2.1: objspace.so by Aman Gupta](http://tmm1.net/ruby21-objspace/)
 * [Ruby Under The Hood: Memory Layout of an Object by	Jesus Castello](http://www.blackbytes.info/2017/04/memory-layout-of-an-object/)
 * [The Fastest Way to Generate a Heap Dump on Heroku by Richard Schneems](https://www.schneems.com/2017/05/01/the-fastest-way-to-generate-a-heap-dump-on-heroku/)
+* [The Limits of Copy-on-write: How Ruby Allocates Memory
+](https://brandur.org/ruby-memory)
 
 #### Tools:
 * https://github.com/SamSaffron/memory_profiler
