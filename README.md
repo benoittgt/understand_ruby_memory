@@ -12,7 +12,7 @@ I will add more questions in the future using pull requests so feel free to watc
 * [What are the first line of a heap dump that are not address **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-are-the-first-line-of-a-heap-dump-that-are-not-address-answered-)
 * [What is allocated and what is not allocated **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#partially-answered-what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation)
 * [What is allocated **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-allocated-and-what-is-not-allocated-not-every-object-requires-allocation-answered-)
-* [What is garbage collected **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-garbage-collected-)
+* [What is garbage collected **[Not answered]** ?](https://github.com/benoittgt/understand_ruby_memory#what-is-garbage-collected-not-answered--)
 * [Why people are always scared about time spent in GC when the Newrelic graph of my app show an average time spent in GC that is 0.0676% **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-people-are-always-scared-about-time-spent-in-gc-when-the-newrelic-graph-of-my-app-show-an-average-time-spent-in-gc-that-is-00676-)
 * [Why when using a frozen string we don't allocate memory **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-when-using-a-frozen-string-we-dont-allocate-memory-)
 * [Why generation number in heap dump are in random order **[Answered]** ?](https://github.com/benoittgt/understand_ruby_memory#why-generation-number-in-heap-dump-are-in-random-order-)
