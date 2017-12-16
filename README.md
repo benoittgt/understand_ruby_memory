@@ -390,6 +390,7 @@ Other questions will follow
 * [The Fastest Way to Generate a Heap Dump on Heroku by Richard Schneems](https://www.schneems.com/2017/05/01/the-fastest-way-to-generate-a-heap-dump-on-heroku/)
 * [The Limits of Copy-on-write: How Ruby Allocates Memory
 ](https://brandur.org/ruby-memory)
+* [Malloc Can Double Multi-threaded Ruby Program Memory Usage](https://www.speedshop.co/2017/12/04/malloc-doubles-ruby-memory.html)
 
 #### Tools:
 * https://github.com/SamSaffron/memory_profiler
